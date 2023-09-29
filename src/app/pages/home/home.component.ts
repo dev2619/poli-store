@@ -1,15 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Product } from 'src/app/interfaces/product';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private productService: ProductsService) { }
 
-  products: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2];
+  products: Product[] = [];
+  searchProduct(): void {
+    this.productService.getProducts().subscribe((res) => {
+      console.log("🚀 ~ file: home.component.ts:19 ~ HomeComponent ~ this.productService.getProducts ~ res:", res)
+      this.products = res
+    });
+  }
+
+  ngOnInit(): void {
+    this.searchProduct();
+  }
 
 }
