@@ -1,0 +1,23 @@
+[
+    {
+        "nombre": "María Elena García",
+        "rol": "admin",
+        "correo": "maria@gmail.com",
+        "edad": 30,
+        "password": "contrasena1"
+    },
+    {
+        "nombre": "Carlos Alberto Rodríguez",
+        "rol": "user",
+        "correo": "carlos@gmail.com",
+        "edad": 25,
+        "password": "contrasena2"
+    },
+    {
+        "nombre": "Ana Gabriela López",
+        "rol": "user",
+        "correo": "ana@gmail.com",
+        "edad": 28,
+        "password": "contrasena3"
+    }
+]
