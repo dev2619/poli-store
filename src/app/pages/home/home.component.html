@@ -148,61 +148,44 @@
         "
       ></div>
     </div>
-    <div class="mx-auto max-w-2xl py-10 sm:py-10 lg:py-10">
-      <div id="carouselExampleCaptions" class="carousel slide">
-        <div class="carousel-indicators">
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"
-          ></button>
-          <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="2"
-            aria-label="Slide 3"
-          ></button>
-        </div>
+    <div class="mx-auto max-w-7xl py-10 sm:py-10 lg:py-10">
+      <!-- Carrousel -->
+      <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <div *ngFor="let product of products" class="carousel-item active">
+          <div
+            *ngFor="let product of products; index as i"
+            [ngClass]="i == 0 ? 'active' : ''"
+            class="carousel-item"
+          >
             <img
               [src]="product.imgSource"
+              class="d-block w-70 h-100 mx-auto"
               [alt]="product.description"
-              class="d-block w-100"
             />
-            <div class="carousel-caption d-none d-md-block text-dark">
-              <h5>{{ product.name }}</h5>
-              <p>
-                {{ product.description }}
-              </p>
-            </div>
           </div>
         </div>
         <button
           class="carousel-control-prev"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselExample"
           data-bs-slide="prev"
         >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span
+            class="carousel-control-prev-icon bg-dark"
+            aria-hidden="true"
+          ></span>
           <span class="visually-hidden">Previous</span>
         </button>
         <button
           class="carousel-control-next"
           type="button"
-          data-bs-target="#carouselExampleCaptions"
+          data-bs-target="#carouselExample"
           data-bs-slide="next"
         >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span
+            class="carousel-control-next-icon bg-dark"
+            aria-hidden="true"
+          ></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
