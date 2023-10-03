@@ -203,31 +203,63 @@
           <div
             class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
           >
-            <div *ngFor="let product of products" class="group relative">
-              <div
-                class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
-              >
+            <div
+              *ngFor="let product of products; index as i"
+              class="group relative"
+            >
+              <div class="card" style="width: 18rem">
                 <img
                   [src]="product.imgSource"
                   [alt]="product.description"
-                  class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                  class="card-img-top h-100"
                 />
-              </div>
-              <div class="mt-4 flex justify-between">
-                <div>
-                  <h3 class="text-sm text-gray-700">
-                    <a href="#">
-                      <span aria-hidden="true" class="absolute inset-0"></span>
-                      {{ product.name }}
-                    </a>
-                  </h3>
-                  <p class="mt-1 text-sm text-gray-500">
-                    {{ product.description }}
-                  </p>
+                <div class="card-body">
+                  <h1 class="card-title font-bold">{{ product.name }}</h1>
+                  <p class="card-text">{{ product.description }}</p>
+                  <b> Precio {{ product.sellingPrice | currency }} </b>
+                  <button
+                    type="button"
+                    class="btn rounded-full border-black ml-20 font-bold"
+                    [attr.data-bs-toggle]="'modal' + i"
+                    [attr.data-bs-target]="'#productModal' + i"
+                  >
+                    +
+                  </button>
                 </div>
-                <p class="text-sm font-medium text-gray-900">
-                  {{ product.sellingPrice | currency }}
-                </p>
+              </div>
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                [id]="'productModal' + i"
+                tabindex="-1"
+                [attr.aria-labelledby]="'productModalLabel' + i"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h1
+                        class="modal-title fs-5"
+                        [id]="'productModalLabel' + i"
+                      >
+                        {{ product.name }}
+                      </h1>
+                      <button
+                        type="button"
+                        class="btn-close"
+                        [attr.data-bs-dismiss]="'modal' + i"
+                        aria-label="Close"
+                      ></button>
+                    </div>
+                    <div class="modal-body">{{ product.name }}</div>
+                    <div class="modal-body">{{ product.productOnSale }}</div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-success">
+                        Comprar
+                      </button>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
