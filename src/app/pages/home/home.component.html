@@ -219,46 +219,12 @@
                   <b> Precio {{ product.sellingPrice | currency }} </b>
                   <button
                     type="button"
-                    class="btn rounded-full border-black ml-20 font-bold"
-                    [attr.data-bs-toggle]="'modal' + i"
+                    class="btn rounded-full border-0 ml-20 font-bold"
+                    data-bs-toggle="modal"
                     [attr.data-bs-target]="'#productModal' + i"
                   >
                     +
                   </button>
-                </div>
-              </div>
-              <!-- Modal -->
-              <div
-                class="modal fade"
-                [id]="'productModal' + i"
-                tabindex="-1"
-                [attr.aria-labelledby]="'productModalLabel' + i"
-                aria-hidden="true"
-              >
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h1
-                        class="modal-title fs-5"
-                        [id]="'productModalLabel' + i"
-                      >
-                        {{ product.name }}
-                      </h1>
-                      <button
-                        type="button"
-                        class="btn-close"
-                        [attr.data-bs-dismiss]="'modal' + i"
-                        aria-label="Close"
-                      ></button>
-                    </div>
-                    <div class="modal-body">{{ product.name }}</div>
-                    <div class="modal-body">{{ product.productOnSale }}</div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-success">
-                        Comprar
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -558,5 +524,43 @@
         );
       "
     ></div>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  *ngFor="let product of products; index as i"
+  [id]="'productModal' + i"
+>
+  <div class="modal-dialog modal-dialog-centered w-60">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <h1 class="modal-title fs-5 font-bold text-center">
+          {{ product.name }}
+        </h1>
+        <button type="button" class="font-bold" data-bs-dismiss="modal">
+          X
+        </button>
+      </div>
+      <div class="modal-body border-0">
+        <p>{{ product.description }}</p>
+        <div class="my-3 mx-auto">
+          <span
+            *ngIf="product.productOnSale"
+            class="mx-auto bg-blue-500 rounded p-1 text-white"
+          >
+            <i class="fa-solid fa-tags"></i> ¡Producto con 20% off!
+          </span>
+        </div>
+      </div>
+      <div class="modal-footer border-0">
+        <button
+          type="button"
+          class="btn btn-success border-0 bg-green-600 mx-auto"
+        >
+          <i class="fa-solid fa-cart-shopping"></i> Comprar
+        </button>
+      </div>
+    </div>
   </div>
 </div>

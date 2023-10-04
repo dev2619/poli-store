@@ -3,7 +3,7 @@
         "id": 1,
         "name": "Banano",
         "description": "Deliciosos bananos frescos",
-        "productOnSale": true,
+        "productOnSale": false,
         "buyPrice": 700,
         "sellingPrice": 1000,
         "units": 10,
