@@ -1,23 +1,23 @@
 [
     {
         "nombre": "María Elena García",
-        "rol": "admin",
-        "correo": "maria@gmail.com",
+        "rol": "user",
+        "correo": "maria@polistore.com",
         "edad": 30,
         "password": "contrasena1"
     },
     {
         "nombre": "Carlos Alberto Rodríguez",
         "rol": "user",
-        "correo": "carlos@gmail.com",
+        "correo": "carlos@polistore.com",
         "edad": 25,
         "password": "contrasena2"
     },
     {
         "nombre": "Ana Gabriela López",
-        "rol": "user",
-        "correo": "ana@gmail.com",
+        "rol": "admin",
+        "correo": "ana@polistore.com",
         "edad": 28,
-        "password": "contrasena3"
+        "password": "password"
     }
 ]
