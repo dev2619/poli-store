@@ -4,7 +4,9 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProductsComponent } from './products/products.component';
+import { PrimeNgModule } from '../prime-ng/prime-ng.module';
 
 
 @NgModule({
@@ -12,16 +14,20 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     LoginComponent,
     DashboardComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    ProductsComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    PrimeNgModule,
   ],
   exports: [
     HomeComponent,
     LoginComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProductsComponent
   ]
 })
 export class PagesModule { }
