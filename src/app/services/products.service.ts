@@ -14,4 +14,16 @@ export class ProductsService {
     return this.http.get<Product[]>(this.products);
   }
 
+  addProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.products);
+  }
+
+  updateProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.products);
+  }
+
+  removeProduct(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.products);
+  }
+
 }

@@ -61,53 +61,39 @@
 <!-- Products logic -->
 <div class="card mt-10 mx-auto border-0" style="max-width: 70vw">
   <h2 class="fs-1 text-center">Administrar Productos</h2>
-  <p-toolbar styleClass="mb-4 gap-2">
-    <ng-template pTemplate="left">
-      <button
-        pRipple
-        icon="pi pi-plus"
-        class="text-white btn mr-2 bg-green-500"
-        (click)="openNew()"
-      >
-        Agregar
-      </button>
-      <button
-        pRipple
-        icon="pi pi-plus"
-        class="text-white btn ml-12 bg-orange-500"
-        (click)="openNew()"
-      >
-        Actualizar
-      </button>
-    </ng-template>
-
-    <ng-template pTemplate="right">
-      <button
-        pRipple
-        class="text-white btn mr-12 bg-blue-600"
-        (click)="openNew()"
-      >
-        Poner en Promoción
-      </button>
-      <button
-        pRipple
-        class="text-white btn mr-2 bg-red-600"
-        (click)="openNew()"
-        [disabled]="!selectedProducts || !selectedProducts.length"
-      >
-        Eliminar
-      </button>
-      <p-fileUpload
-        mode="basic"
-        accept="image/*"
-        [maxFileSize]="1000000"
-        label="Import"
-        chooseLabel="Import"
-        class="mr-2 inline-block bg-slate-400"
-      ></p-fileUpload>
-    </ng-template>
-  </p-toolbar>
-
+  <div class="my-4 flex justify-between">
+    <button
+      pRipple
+      icon="pi pi-plus"
+      class="text-white rounded p-2 bg-green-500"
+      (click)="openNew()"
+    >
+      <i class="fa-solid fa-plus"></i> Agregar
+    </button>
+    <button
+      pRipple
+      icon="pi pi-plus"
+      class="text-white rounded p-2 bg-orange-500"
+      (click)="openNew()"
+    >
+      <i class="fa-solid fa-pen-to-square"></i> Actualizar
+    </button>
+    <button
+      pRipple
+      class="text-white rounded p-2 bg-blue-600"
+      (click)="openNew()"
+    >
+      <i class="fa-solid fa-tag"></i> Poner en Promoción
+    </button>
+    <button
+      pRipple
+      class="text-white rounded p-2 bg-red-600"
+      (click)="openNew()"
+      [disabled]="!selectedProducts || !selectedProducts.length"
+    >
+      <i class="fa-solid fa-trash-can"></i> Eliminar
+    </button>
+  </div>
   <p-table
     #dt
     [value]="products"
@@ -364,5 +350,8 @@
   </ng-template>
 </p-dialog>
 
-<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
+<p-confirmDialog
+  [style]="{ width: '450px' }"
+  [baseZIndex]="10000"
+></p-confirmDialog>
 <p-toast></p-toast>

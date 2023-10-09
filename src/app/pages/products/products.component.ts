@@ -24,17 +24,6 @@ export class ProductsComponent implements OnInit {
 
   constructor(private productService: ProductsService, private primengConfig: PrimeNGConfig, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
-  ngOnInit() {
-    this.primengConfig.ripple = true;
-    this.productService.getProducts().subscribe((data) => (this.products = data));
-
-    this.statuses = [
-      { label: 'INSTOCK', value: 'instock' },
-      { label: 'LOWSTOCK', value: 'lowstock' },
-      { label: 'OUTOFSTOCK', value: 'outofstock' }
-    ];
-  }
-
   openNew() {
     this.product = {};
     this.submitted = false;
@@ -131,5 +120,16 @@ export class ProductsComponent implements OnInit {
       default:
         return 'danger';
     }
+  }
+
+  ngOnInit() {
+    this.primengConfig.ripple = true;
+    this.productService.getProducts().subscribe((data) => (this.products = data));
+
+    this.statuses = [
+      { label: 'INSTOCK', value: 'instock' },
+      { label: 'LOWSTOCK', value: 'lowstock' },
+      { label: 'OUTOFSTOCK', value: 'outofstock' }
+    ];
   }
 }
