@@ -88,7 +88,7 @@
     <button
       pRipple
       class="text-white rounded p-2 bg-red-600"
-      (click)="openNew()"
+      (click)="deleteSelectedProducts()"
       [disabled]="!selectedProducts || !selectedProducts.length"
     >
       <i class="fa-solid fa-trash-can"></i> Eliminar
