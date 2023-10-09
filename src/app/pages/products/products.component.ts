@@ -16,7 +16,7 @@ export class ProductsComponent implements OnInit {
 
   product!: Product;
 
-  selectedProducts!: Product[] | null;
+  selectedProducts: Product[] = [];
 
   submitted: boolean = false;
 
@@ -38,15 +38,29 @@ export class ProductsComponent implements OnInit {
       acceptLabel: 'Sí',
       accept: () => {
         this.products = this.products.filter((val) => !this.selectedProducts?.includes(val));
-        this.selectedProducts = null;
+        this.selectedProducts = [];
         this.messageService.add({ severity: 'success', summary: 'Realizado', detail: 'Productos eliminados', life: 3000 });
       }
     });
   }
 
-  editProduct(product: Product) {
-    this.product = { ...product };
-    this.productDialog = true;
+  editProduct() {
+    if (this.selectedProducts.length == 1) {
+      this.product = { ...this.selectedProducts[0] };
+      this.productDialog = true;
+    } else {
+      if (this.selectedProducts.length > 1) {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Debes seleccionar unicamente un producto a editar.'
+        });
+      } else {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Debes seleccionar algún producto a editar.'
+        });
+      }
+    }
   }
 
   deleteProduct(product: Product) {
@@ -109,27 +123,27 @@ export class ProductsComponent implements OnInit {
     return id;
   }
 
-  getSeverity(status: string = 'INSTOCK') {
+  getSeverity(status: string = 'DISPONIBLE'): string {
     switch (status) {
-      case 'INSTOCK':
+      case 'DISPONIBLE':
         return 'success';
-      case 'LOWSTOCK':
+      case 'POCAS UNIDADES':
         return 'warning';
-      case 'OUTOFSTOCK':
+      case 'AGOTADO':
         return 'danger';
       default:
-        return 'danger';
+        return this.getSeverity();
     }
   }
 
   ngOnInit() {
     this.primengConfig.ripple = true;
-    this.productService.getProducts().subscribe((data) => (this.products = data));
+    this.productService.getProducts().subscribe((data) => (this.products = data, this.selectedProducts = data));
 
     this.statuses = [
-      { label: 'INSTOCK', value: 'instock' },
-      { label: 'LOWSTOCK', value: 'lowstock' },
-      { label: 'OUTOFSTOCK', value: 'outofstock' }
+      { label: 'DISPONIBLE', value: 'Disponible' },
+      { label: 'POCAS UNIDADES', value: 'Pocas Unidades' },
+      { label: 'AGOTADO', value: 'Agotado' }
     ];
   }
 }
