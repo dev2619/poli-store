@@ -33,9 +33,11 @@ export class ProductsComponent implements OnInit {
   deleteSelectedProducts() {
     this.confirmationService.confirm({
       message: 'Estas seguro de eliminar los productos seleccionados?',
-      header: '',
+      header: 'Eliminar',
       icon: 'pi pi-exclamation-triangle',
       acceptLabel: 'Sí',
+      acceptButtonStyleClass: 'text-white rounded p-2 bg-green-500',
+      rejectButtonStyleClass: 'text-white rounded p-2 bg-red-500',
       accept: () => {
         this.products = this.products.filter((val) => !this.selectedProducts?.includes(val));
         this.selectedProducts = [];
