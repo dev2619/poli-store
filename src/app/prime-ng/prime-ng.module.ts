@@ -20,6 +20,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputSwitchModule } from 'primeng/inputswitch';
 import { TagModule } from 'primeng/tag';
+import { ChartModule } from 'primeng/chart';
 
 @NgModule({
   exports: [
@@ -42,6 +43,7 @@ import { TagModule } from 'primeng/tag';
     CheckboxModule,
     InputSwitchModule,
     TagModule,
+    ChartModule,
   ]
 })
 export class PrimeNgModule { }

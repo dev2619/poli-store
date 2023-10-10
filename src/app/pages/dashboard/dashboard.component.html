@@ -58,3 +58,17 @@
     </ul>
   </div>
 </div>
+<div class="row mx-auto mt-10" style="max-width: 75vw">
+  <div class="card flex justify-content-center col-4 p-5">
+    <p-chart type="doughnut" [data]="data" [options]="options"></p-chart>
+  </div>
+  <div class="card col-7 p-5">
+    <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+  </div>
+  <div class="card col-8 p-5">
+    <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
+  </div>
+  <div class="card flex justify-content-center col-4 p-5">
+    <p-chart type="pie" [data]="data" [options]="options"></p-chart>
+  </div>
+</div>
