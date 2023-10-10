@@ -81,7 +81,7 @@
     <button
       pRipple
       class="text-white rounded p-2 bg-blue-600"
-      (click)="openNew()"
+      (click)="editProduct()"
     >
       <i class="fa-solid fa-tag"></i> Poner en Promoción
     </button>
@@ -221,9 +221,9 @@
         class="p-2 rounded d-block w-100"
         [(ngModel)]="product.inventoryStatus"
       >
-        <option value="Disponible">DISPONIBLE</option>
-        <option value="Pocas Unidades">POCAS UNIDADES</option>
-        <option value="Agotado">AGOTADO</option>
+        <option value="DISPONIBLE">DISPONIBLE</option>
+        <option value="POCAS UNIDADES">POCAS UNIDADES</option>
+        <option value="AGOTADO">AGOTADO</option>
       </select>
     </div>
     <div class="field mt-1">
@@ -233,8 +233,8 @@
         class="p-2 rounded d-block w-100"
         [(ngModel)]="product.productOnSale"
       >
-        <option value="true">Si</option>
-        <option value="false">No</option>
+        <option [value]="true">Si</option>
+        <option [value]="false">No</option>
       </select>
     </div>
     <div class="formgrid grid">

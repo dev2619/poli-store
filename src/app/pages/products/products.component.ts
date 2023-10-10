@@ -93,7 +93,7 @@ export class ProductsComponent implements OnInit {
         this.messageService.add({ severity: 'success', summary: 'Realizado', detail: 'Producto actualizado', life: 3000 });
       } else {
         this.product.id = this.createId();
-        this.product.imgSource = 'product-placeholder.svg';
+        this.product.imgSource = 'https://images.pexels.com/photos/5945608/pexels-photo-5945608.jpeg';
         this.products.push(this.product);
         this.messageService.add({ severity: 'success', summary: 'Successful', detail: 'Product Created', life: 3000 });
       }

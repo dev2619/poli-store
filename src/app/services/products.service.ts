@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from '../interfaces/product';
@@ -11,18 +11,6 @@ export class ProductsService {
   private products = '../../assets/data/product.json';
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.products);
-  }
-
-  addProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.products);
-  }
-
-  updateProduct(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.products);
-  }
-
-  removeProduct(): Observable<Product[]> {
     return this.http.get<Product[]>(this.products);
   }
 
