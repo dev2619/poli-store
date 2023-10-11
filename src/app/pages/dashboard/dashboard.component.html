@@ -60,15 +60,19 @@
 </div>
 <div class="row mx-auto mt-10" style="max-width: 75vw">
   <div class="card flex justify-content-center col-4 p-5">
+    <p class="mx-auto f-5">Grafico de Ventas</p>
     <p-chart type="doughnut" [data]="data" [options]="options"></p-chart>
   </div>
   <div class="card col-7 p-5">
+    <p class="mx-auto f-5">Grafico de Productos</p>
     <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
   </div>
   <div class="card col-8 p-5">
+    <p class="mx-auto f-5">Grafico de total de productos</p>
     <p-chart type="bar" [data]="basicData" [options]="basicOptions"></p-chart>
   </div>
-  <div class="card flex justify-content-center col-4 p-5">
+  <div class="card flex justify-content-center col-3 p-5">
+    <p class="mx-auto f-5">Grafico de productos escasos</p>
     <p-chart type="pie" [data]="data" [options]="options"></p-chart>
   </div>
 </div>
